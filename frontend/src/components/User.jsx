@@ -5,7 +5,7 @@ export default function User(user) {
         {/* Image and Name Section */}
         <div className="flex justify-center items-center mb-4">
           <img
-            src={user.image}
+            src={`${user.role}.jpg`}
             className="w-24 h-24 rounded-full shadow-lg border-4 border-indigo-300"
             alt="user-pic"
           />

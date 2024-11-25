@@ -5,6 +5,7 @@ export default function Card(card) {
       className="h-28 bg-indigo-50 rounded-lg"
       onClick={() => {
         card.setRole(card.role);
+        card.setWho(false);
         console.log(` ${card.role} card clicked`); // Debug log
       }}
     >
