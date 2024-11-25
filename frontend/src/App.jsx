@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Who from "./components/WhoAreYou";
 import User from "./components/User";
 
 function App() {
   const [who, setWho] = useState(false);
+  const [role, setRole] = useState("Guest");
+  useEffect(() => {
+    console.log(`Role updated in App: ${role}`);
+  }, [role]);
 
   return (
     <>
@@ -24,31 +28,34 @@ function App() {
           >
             Login
           </button>
+          <h1 className="text-3xl">{role}</h1>
 
           {/* Conditionally render the Who component as a popup */}
-          {who && <Who />}
+          {who && <Who setRole={setRole} />}
 
           {/* User Cards */}
-          <div className="flex space-x-10 mt-8">
-            <User
-              image="guest.jpeg"
-              role="Guest"
-              tasks={["Test site", "Internship"]}
-              name="Simbu"
-            />
-            <User
-              image="admin.jpg"
-              role="admin"
-              tasks={["Frontend Task", "Eat Lunch"]}
-              name="Monu"
-            />
-            <User
-              image="manager.jpg"
-              role="manager"
-              tasks={["Meeting", "Testing"]}
-              name="Sahas"
-            />
-          </div>
+          {!who && (
+            <div className="flex space-x-10 mt-8">
+              <User
+                image="guest.jpeg"
+                role="Guest"
+                tasks={["Test site", "Internship"]}
+                name="Simbu"
+              />
+              <User
+                image="admin.jpg"
+                role="admin"
+                tasks={["Frontend Task", "Eat Lunch"]}
+                name="Monu"
+              />
+              <User
+                image="manager.jpg"
+                role="manager"
+                tasks={["Meeting", "Testing"]}
+                name="Sahas"
+              />
+            </div>
+          )}
         </div>
       </div>
     </>
