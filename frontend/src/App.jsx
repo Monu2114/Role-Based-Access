@@ -1,5 +1,9 @@
+import { useState } from "react";
 import Who from "./components/WhoAreYou";
+import User from "./components/User";
 function App() {
+  const [who, setWho] = useState(false);
+
   return (
     <>
       <div className="bg-slate-200 h-screen	">
@@ -11,7 +15,15 @@ function App() {
           />
           <h1 className="font-cursive font-">Pandagram</h1>
         </div> */}
-        <Who />
+        <button onClick={() => setWho(!who)}>Login</button>
+        {/* Conditionally render the Who component as a popup */}
+        {who && <Who />}
+        <User
+          image="guest.jpeg"
+          role="admin"
+          tasks={["Frontend Task", "Eat Lunch"]}
+          name="Monu"
+        />
       </div>
     </>
   );

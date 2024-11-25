@@ -1,5 +1,4 @@
 import Card from "./Card";
-
 export default function Who() {
   return (
     <div className="flex flex-col  bg-white mx-2 px-6 rounded-lg w-1/3 h-80 font-cursive p-6 shadow-xl space-y-4 px-2	">
