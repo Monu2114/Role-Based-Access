@@ -8,6 +8,7 @@ function App() {
   const [role, setRole] = useState("Guest");
   const [newUserData, setNewUserData] = useState(null); // State for storing new user data
   const [showForm, setShowForm] = useState(false); // State for showing/hiding the form
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [users, setUsers] = useState(() => {
     // Retrieve users from local storage, or initialize with default users
     const savedUsers = localStorage.getItem("users");
@@ -48,17 +49,16 @@ function App() {
   const isAdmin = role === "Admin";
   const isManager = role === "Manager";
   const isGuest = role === "Guest";
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <>
       {/* Parent div with background image */}
       <div
-        className="relative bg-cover bg-center h-screen"
+        className="relative bg-cover bg-center min-h-screen "
         style={{ backgroundImage: "url('green.jpg')" }}
       >
         {/* Overlaying content */}
-        <div className="absolute inset-0 bg-slate-200 bg-opacity-20 h-screen flex flex-col items-center justify-center">
+        <div className="absolute inset-0 bg-slate-200 bg-opacity-20 h-screen flex flex-col items-center  mt-4">
           <h1 className="font-cursive font-bold text-3xl">
             Pandagram - Role Based Access
           </h1>
@@ -89,7 +89,7 @@ function App() {
 
           {/* User Cards */}
           {!who && (
-            <div className="flex space-x-10 mt-8 ">
+            <div className="grid grid-cols-4 space-x-10 mt-8 ">
               {users.map((user, index) => {
                 console.log(`Index: ${index}, User:`, user); // Log the index and user details
                 return (

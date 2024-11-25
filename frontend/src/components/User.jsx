@@ -18,9 +18,11 @@ export default function User(user) {
 
         {/* Tasks Section */}
         <div>
-          <h4 className="text-lg font-medium text-gray-700 mb-2">
-            Assigned Tasks
-          </h4>
+          <div className="flex">
+            <h4 className="text-lg font-medium text-gray-700 mb-2">
+              Assigned Tasks
+            </h4>
+          </div>
           <ul className="space-y-2">
             {user.tasks.map((task) => (
               <li key={task} className="flex items-center gap-3">
