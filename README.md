@@ -2,6 +2,9 @@
 
 Pandagram is a simple React application that demonstrates role-based access control (RBAC) for user management. Users can log in, view tasks, and manage roles and tasks based on their access level (Admin, Manager, or Guest). The project utilizes React state, local storage for persistent data, and role-based UI rendering for a dynamic user experience.
 
+# Demo Video
+https://github.com/user-attachments/assets/2f7a8607-9b9e-41ba-a0d3-2fc3ab5c2841
+
 # Features
 
 User Roles:
@@ -21,6 +24,5 @@ Login System: Users can log in to the application and access role-specific featu
 Guests can't update roles and change tasks :
 ![alt text](image-1.png)
 
-# Demo Video
-https://github.com/user-attachments/assets/2f7a8607-9b9e-41ba-a0d3-2fc3ab5c2841
+
 
