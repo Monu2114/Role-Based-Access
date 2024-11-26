@@ -6,9 +6,10 @@ import NewUser from "./components/NewUser";
 function App() {
   const [who, setWho] = useState(false);
   const [role, setRole] = useState("Guest");
-  const [newUserData, setNewUserData] = useState(null); // State for storing new user data
   const [showForm, setShowForm] = useState(false); // State for showing/hiding the form
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [message, setMessage] = useState("");
+
   const [users, setUsers] = useState(() => {
     // Retrieve users from local storage, or initialize with default users
     const savedUsers = localStorage.getItem("users");
@@ -39,6 +40,33 @@ function App() {
 
     setWho(false);
     // Hide the form
+  };
+  const handleRole = (updatedUser) => {
+    if (!isAdmin) {
+      setMessage("Only Admins can change roles.");
+      return;
+    }
+    setUsers((prevUsers) =>
+      prevUsers.map((user, key) =>
+        key === updatedUser.key
+          ? {
+              ...user,
+              role:
+                user.role === "Guest"
+                  ? "Manager"
+                  : user.role === "Manager"
+                  ? "Admin"
+                  : "Guest",
+            } // Update the role for the matching user
+          : user
+      )
+    );
+    setMessage("");
+    console.log(updatedUser);
+  };
+
+  const handleTasks = (user) => {
+    if (isGuest) setMessage("Can't make changes in Tasks as Guest");
   };
 
   useEffect(() => {
@@ -80,6 +108,7 @@ function App() {
           >
             New User
           </button>
+          {message}
           {showForm && <NewUser onAddUser={handleAddUser} />}
 
           <h1 className="text-3xl">{role}</h1>
@@ -91,14 +120,16 @@ function App() {
           {!who && (
             <div className="grid grid-cols-4 space-x-10 mt-8 ">
               {users.map((user, index) => {
-                console.log(`Index: ${index}, User:`, user); // Log the index and user details
                 return (
                   <User
                     key={index}
+                    index={index} // Pass index as a prop
                     image={user.role}
                     role={user.role}
                     tasks={user.tasks}
                     name={user.name}
+                    handleRole={handleRole}
+                    handleTasks={handleTasks}
                   />
                 );
               })}

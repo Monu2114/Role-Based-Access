@@ -13,7 +13,18 @@ export default function User(user) {
 
         <div className="text-center mb-4">
           <h3 className="text-xl font-semibold text-indigo-600">{user.name}</h3>
-          <p className="text-md text-gray-500">{user.role}</p>
+
+          <p
+            className="text-md text-gray-500"
+            onClick={() =>
+              user.handleRole({
+                key: user.index, // Pass the index
+                role: user.role, // Current role (optional, for debugging)
+              })
+            } // Replace "NewRole" with logic to choose the role
+          >
+            {user.role}
+          </p>
         </div>
 
         {/* Tasks Section */}
@@ -28,6 +39,7 @@ export default function User(user) {
               <li key={task} className="flex items-center gap-3">
                 <input
                   type="checkbox"
+                  onClick={user.handleTasks({ key: user.index, task: task })}
                   className="form-checkbox h-5 w-5 text-indigo-500"
                 />
                 <span className="text-gray-600">{task}</span>
