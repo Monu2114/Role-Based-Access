@@ -27,12 +27,13 @@ Clone the repository to your local machine using the following command:
 https://github.com/Monu2114/Role-Based-Access.git
 
 2. Navigate to the Frontend Folder
-Change into the frontend directory: cd frontend
+Change into the frontend directory:
+cd frontend
 
-3. Install Dependencies
+4. Install Dependencies :
    npm install
 
-4. Start the Development Server
+5. Start the Development Server
    npm run
 This will start the application, and you can view it in your browser by navigating to http://localhost:5173.
 
