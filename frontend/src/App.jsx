@@ -7,7 +7,6 @@ function App() {
   const [who, setWho] = useState(false);
   const [role, setRole] = useState("Guest");
   const [showForm, setShowForm] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [message, setMessage] = useState("");
 
   const [users, setUsers] = useState(() => {
@@ -28,7 +27,6 @@ function App() {
   const handleAddUser = (userData) => {
     setUsers((prevUsers) => [...prevUsers, userData]);
     setShowForm(false);
-    setIsLoggedIn(true);
     setWho(false);
   };
 
@@ -37,6 +35,7 @@ function App() {
       setMessage("Only Admins can change roles.");
       return;
     }
+    setMessage("");
     setUsers((prevUsers) =>
       prevUsers.map((user, key) =>
         key === updatedUser.key
@@ -59,6 +58,7 @@ function App() {
       setMessage("Guests can't update tasks");
       return;
     }
+    setMessage("");
     if (Task.action === "delete") {
       setUsers((prevUsers) =>
         prevUsers.map((user, index) =>
@@ -96,29 +96,31 @@ function App() {
         <h1 className="font-cursive font-bold text-3xl">
           Pandagram - Role Based Access
         </h1>
-
-        {!isLoggedIn && (
+        <div className="flex space-x-4">
           <button
             onClick={() => setWho(!who)}
             className="mt-4 px-6 py-2 bg-blue-500 text-white rounded-lg"
           >
             Login
           </button>
-        )}
-        <button
-          className={`mt-4 px-6 py-2 ${
-            isAdmin ? "bg-blue-500" : "bg-gray-500"
-          } text-white rounded-lg`}
-          onClick={() => setShowForm(true)}
-          disabled={!isAdmin}
-        >
-          New User
-        </button>
-        {message}
+
+          <button
+            className={`mt-4 px-6 py-2 ${
+              isAdmin ? "bg-blue-500" : "bg-gray-500"
+            } text-white rounded-lg`}
+            onClick={() => setShowForm(true)}
+            disabled={!isAdmin}
+          >
+            New User
+          </button>
+        </div>
+
         {showForm && <NewUser onAddUser={handleAddUser} />}
 
-        <h1 className="text-3xl">{role}</h1>
-
+        <button className="mt-4 px-6 py-2 bg-zinc-500 text-white rounded-lg">
+          {role}
+        </button>
+        <p className="mt-2 text-sm text-red-500">{message}</p>
         {who && <Who setRole={setRole} setWho={setWho} />}
 
         {/* User Cards */}
