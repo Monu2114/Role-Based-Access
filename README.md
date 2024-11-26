@@ -18,14 +18,16 @@ Task Management: Admins and Managers can view assigned tasks. Admins have the ab
 
 Login System: Users can log in to the application and access role-specific features.
 
-# Setup and Installation
+## Setup and Installation
 
 To get started with this project locally, follow the steps below:
 
-1. Clone the Repository
-Clone the repository to your local machine using the following command:
-git clone https://github.com/Monu2114/Role-Based-Access.git
+### 1. Clone the Repository
 
+Clone the repository to your local machine using the following command:
+
+```bash
+git clone https://github.com/Monu2114/Role-Based-Access.git
 
 2. Navigate to the Frontend Folder
 Change into the frontend directory:
