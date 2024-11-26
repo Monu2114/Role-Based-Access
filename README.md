@@ -40,8 +40,8 @@ This will start the application, and you can view it in your browser by navigati
 
 # Screenshots
 
-Add Tasks by seperating with comma(',')
-![image](https://github.com/user-attachments/assets/caada3eb-2855-41d5-b9ff-f52fbf97c411)
+Add Multiple tasks by seperating with comma(',')
+![image](https://github.com/user-attachments/assets/4209e6ca-882f-4430-9309-c9f01e102142)
 
 ![alt text](image-2.png)
 
