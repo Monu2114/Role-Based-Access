@@ -40,6 +40,9 @@ This will start the application, and you can view it in your browser by navigati
 
 # Screenshots
 
+Add Tasks by seperating with comma(',')
+![image](https://github.com/user-attachments/assets/caada3eb-2855-41d5-b9ff-f52fbf97c411)
+
 ![alt text](image-2.png)
 
 Guests can't update roles and change tasks :
