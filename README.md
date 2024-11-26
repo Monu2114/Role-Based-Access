@@ -24,7 +24,8 @@ To get started with this project locally, follow the steps below:
 
 1. Clone the Repository
 Clone the repository to your local machine using the following command:
-https://github.com/Monu2114/Role-Based-Access.git
+git clone https://github.com/Monu2114/Role-Based-Access.git
+
 
 2. Navigate to the Frontend Folder
 Change into the frontend directory:
