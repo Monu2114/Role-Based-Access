@@ -1,7 +1,7 @@
 import Card from "./Card";
 export default function Who({ setRole, setWho }) {
   return (
-    <div className="flex flex-col  bg-white mx-2 px-6 rounded-lg w-1/3 h-80 font-cursive p-6 shadow-xl space-y-4 px-2	">
+    <div className="flex flex-col bg-white mx-2 px-6 rounded-lg sm:w-1/2 md:w-1/2 h-80 font-cursive p-6 shadow-xl space-y-4 px-2	">
       {/* Header */}
       <div className="flex items-center space-x-4">
         <img

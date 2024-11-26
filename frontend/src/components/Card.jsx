@@ -2,7 +2,7 @@
 export default function Card(card) {
   return (
     <div
-      className="h-28 bg-indigo-50 rounded-lg"
+      className="h-28 bg-indigo-50 rounded-lg "
       onClick={() => {
         card.setRole(card.role);
         card.setWho(false);

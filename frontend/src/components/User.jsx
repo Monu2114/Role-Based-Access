@@ -33,6 +33,15 @@ export default function User(user) {
             <h4 className="text-lg font-medium text-gray-700 mb-2">
               Assigned Tasks
             </h4>
+            {/* <button
+              className={`mt-4 px-6 py-2 ${
+                user.role == "Admin" ? "bg-blue-500" : "bg-gray-500"
+              } text-white rounded-lg`}
+              onClick={() => user.handleTasks(user)}
+              disabled={!user.role == "Admin"} // Disable the button for non-admins
+            >
+              Add Task
+            </button> */}
           </div>
           <ul className="space-y-2">
             {user.tasks.map((task, index) => (
