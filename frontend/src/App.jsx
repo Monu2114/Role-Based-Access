@@ -61,12 +61,40 @@ function App() {
           : user
       )
     );
-    setMessage("");
     console.log(updatedUser);
   };
 
-  const handleTasks = (user) => {
-    if (isGuest) setMessage("Can't make changes in Tasks as Guest");
+  const handleTasks = (Task) => {
+    if (isGuest) {
+      setMessage("Guests can't update tasks");
+      return; // Prevents further execution
+    }
+    if (Task.action == "delete") {
+      setMessage("");
+      setUsers((prevUsers) =>
+        prevUsers.map((user, index) =>
+          index === Task.key
+            ? {
+                ...user,
+                tasks: user.tasks.filter((t) => t != Task.task), // Remove task with the matching task ID
+              }
+            : user
+        )
+      );
+    }
+    if (Task.action == "Add") {
+      setMessage("");
+      setUsers((prevUsers) =>
+        prevUsers.map((user, index) =>
+          index === Task.key
+            ? {
+                ...user,
+                tasks: user.tasks.push(Task.task), // Remove task with the matching task ID
+              }
+            : user
+        )
+      );
+    }
   };
 
   useEffect(() => {

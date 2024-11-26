@@ -29,17 +29,23 @@ export default function User(user) {
 
         {/* Tasks Section */}
         <div>
-          <div className="flex">
+          <div className="flex space-x-4">
             <h4 className="text-lg font-medium text-gray-700 mb-2">
               Assigned Tasks
             </h4>
           </div>
           <ul className="space-y-2">
-            {user.tasks.map((task) => (
-              <li key={task} className="flex items-center gap-3">
+            {user.tasks.map((task, index) => (
+              <li key={index} className="flex items-center gap-3">
                 <input
                   type="checkbox"
-                  onClick={user.handleTasks({ key: user.index, task: task })}
+                  onClick={() =>
+                    user.handleTasks({
+                      key: user.index,
+                      task: task,
+                      action: "delete",
+                    })
+                  }
                   className="form-checkbox h-5 w-5 text-indigo-500"
                 />
                 <span className="text-gray-600">{task}</span>
