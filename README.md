@@ -21,8 +21,17 @@ Login System: Users can log in to the application and access role-specific featu
 # Screenshots
 
 ![alt text](image-2.png)
+
 Guests can't update roles and change tasks :
+
 ![alt text](image-1.png)
+
+Only Admins can update the roles of users :
+
+![image](https://github.com/user-attachments/assets/532d3b9c-e644-4797-b4c9-cee52fe93986)
+
+For other features, do watch the demo video
+
 
 
 
